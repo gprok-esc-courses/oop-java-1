@@ -1,5 +1,9 @@
 package riddles;
 
+import riddles.error_observers.FileLogger;
+import riddles.error_observers.MailLogger;
+import riddles.error_observers.PrinterLogger;
+
 import java.util.ArrayList;
 
 public class Game {
@@ -8,10 +12,17 @@ public class Game {
     private int score;
     private int current;
     private Database db;
+    private RiddleFinder finder;
 
 
     public Game() {
         db = new Database();
+        db.addErrorObserver(new FileLogger());
+        db.addErrorObserver(new PrinterLogger());
+        db.connect();
+        finder = new RiddleFinder();
+        finder.addErrorObserver(new FileLogger());
+        finder.addErrorObserver(new MailLogger());
     }
 
     public void setUsername(String username) {
@@ -19,10 +30,13 @@ public class Game {
     }
 
     public void startNewGame() {
-        RiddleFinder finder = new RiddleFinder();
         riddles = finder.getRiddles(4);
         score = 0;
         current = 0;
+    }
+
+    public boolean gameOk() {
+        return riddles != null && riddles.size() == 4;
     }
 
     public String getCurrentQuestion() {

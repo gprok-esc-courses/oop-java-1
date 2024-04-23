@@ -43,6 +43,9 @@ public class CmdUI {
                 String response = "y";
                 do {
                     game.startNewGame();
+                    if(!game.gameOk()) {
+                        System.exit(1);
+                    }
                     for (int i = 0; i < 4; i++) {
                         System.out.println(game.getCurrentQuestion());
                         System.out.print("Answer: ");

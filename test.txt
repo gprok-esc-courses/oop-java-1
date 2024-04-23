@@ -1,0 +1,5 @@
+Hello again from file writer
+Hello from file writer
+Hello from buffered writer
+Hello from print writer
+Hello from the Writer class
