@@ -29,7 +29,7 @@ public class RiddleFinder {
 
     public JSONObject getFromApi() {
         try {
-            URL url = new URL("https://riddles-api.vercel.app/random5");
+            URL url = new URL("https://riddles-api.vercel.app/random");
             InputStreamReader is = new InputStreamReader(url.openStream());
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(is);

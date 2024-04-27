@@ -71,4 +71,8 @@ public class Game {
     public ArrayList<String> getTopScorers() {
         return db.getTopScores(2);
     }
+
+    public  boolean hasMoreQuestions() {
+        return current < 4;
+    }
 }

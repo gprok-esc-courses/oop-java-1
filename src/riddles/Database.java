@@ -19,7 +19,7 @@ public class Database {
     public void connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/riddles_java2",
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/riddles_java",
                     "test", "test");
         } catch (ClassNotFoundException e) {
             error(e.getMessage());
